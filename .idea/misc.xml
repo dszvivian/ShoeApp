@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/dszvi/AndroidStudioProjects/ShoeApp/app/src/main/res/drawable/custom_bnv.xml" value="0.2725" />
+        <entry key="..\:/Users/dszvi/AndroidStudioProjects/ShoeApp/app/src/main/res/drawable/custom_button.xml" value="0.254" />
+        <entry key="..\:/Users/dszvi/AndroidStudioProjects/ShoeApp/app/src/main/res/drawable/custom_image_background.xml" value="0.279" />
+        <entry key="..\:/Users/dszvi/AndroidStudioProjects/ShoeApp/app/src/main/res/drawable/custombuttonselectsize.xml" value="0.2525" />
+        <entry key="..\:/Users/dszvi/AndroidStudioProjects/ShoeApp/app/src/main/res/drawable/heart.xml" value="0.242" />
+        <entry key="..\:/Users/dszvi/AndroidStudioProjects/ShoeApp/app/src/main/res/drawable/ic_heart_svgrepo_com.xml" value="0.279" />
+        <entry key="..\:/Users/dszvi/AndroidStudioProjects/ShoeApp/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/dszvi/AndroidStudioProjects/ShoeApp/app/src/main/res/layout/cartproduct_item.xml" value="0.4" />
+        <entry key="..\:/Users/dszvi/AndroidStudioProjects/ShoeApp/app/src/main/res/layout/categorymain_item.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/dszvi/AndroidStudioProjects/ShoeApp/app/src/main/res/layout/fragment_cartpage.xml" value="0.152" />
+        <entry key="..\:/Users/dszvi/AndroidStudioProjects/ShoeApp/app/src/main/res/layout/fragment_detailspage.xml" value="0.16" />
+        <entry key="..\:/Users/dszvi/AndroidStudioProjects/ShoeApp/app/src/main/res/layout/fragment_mainpage.xml" value="0.16799999999999998" />
+        <entry key="..\:/Users/dszvi/AndroidStudioProjects/ShoeApp/app/src/main/res/layout/shoedisplaymain_item.xml" value="0.264" />
+        <entry key="..\:/Users/dszvi/AndroidStudioProjects/ShoeApp/app/src/main/res/menu/bnv_items.xml" value="0.22530996152201796" />
+        <entry key="..\:/Users/dszvi/AndroidStudioProjects/ShoeApp/app/src/main/res/menu/detailtoolbar_items.xml" value="0.22530996152201796" />
+        <entry key="..\:/Users/dszvi/AndroidStudioProjects/ShoeApp/app/src/main/res/menu/toolbarmenu.xml" value="0.22530996152201796" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

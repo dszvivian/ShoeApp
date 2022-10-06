@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navgraph"
+    app:startDestination="@id/mainFragment">
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.shoeapp.MainFragment"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.shoeapp.DetailsFragment"
+        android:label="DetailsFragment" >
+        <action
+            android:id="@+id/action_detailsFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+        <argument
+            android:name="productName"
+            app:argType="string"
+            android:defaultValue="null" />
+        <argument
+            android:name="price"
+            app:argType="string"
+            android:defaultValue="null" />
+        <argument
+            android:name="resourceId"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.shoeapp.CartFragment"
+        android:label="CartFragment" />
+</navigation>
