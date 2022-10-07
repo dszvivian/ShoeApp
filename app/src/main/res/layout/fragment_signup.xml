@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/etNameSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/grayishWhite"
+        android:ems="10"
+        android:hint="Enter Name"
+        android:autofillHints="name"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:padding="10dp"
+        android:textSize="21sp"
+        android:textStyle="bold|normal"
+        app:layout_constraintBottom_toTopOf="@+id/etEmailSignUp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+
+    <EditText
+        android:id="@+id/etEmailSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/grayishWhite"
+        android:ems="10"
+        android:hint="Enter Email"
+        android:autofillHints="emailAddress"
+
+        android:inputType="textEmailAddress"
+
+        android:minHeight="48dp"
+        android:padding="10dp"
+        android:textSize="21sp"
+        android:textStyle="bold|normal"
+
+
+        app:layout_constraintBottom_toTopOf="@+id/etPasswordSignUp"
+        app:layout_constraintEnd_toEndOf="@+id/etNameSignUp"
+        app:layout_constraintStart_toStartOf="@+id/etNameSignUp"
+        app:layout_constraintTop_toBottomOf="@+id/etNameSignUp" />
+
+    <EditText
+        android:id="@+id/etPasswordSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/grayishWhite"
+        android:ems="10"
+        android:hint="Enter Password"
+        android:autofillHints="password"
+
+
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:padding="10dp"
+        android:textSize="21sp"
+        android:textStyle="bold|normal"
+
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/etEmailSignUp"
+        app:layout_constraintStart_toStartOf="@+id/etEmailSignUp"
+        app:layout_constraintTop_toBottomOf="@+id/etEmailSignUp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSignUp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/custom_button"
+        android:text="Sign Up"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/tvNavigateToSignIn" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.2"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <TextView
+        android:id="@+id/tvNavigateToSignIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already have Account ? SignIn"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/etPasswordSignUp"
+        app:layout_constraintStart_toStartOf="@+id/etPasswordSignUp"
+        app:layout_constraintTop_toBottomOf="@+id/etPasswordSignUp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,8 +27,8 @@ class ShoeDisplayAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = list[position]
-        holder.binding.tvNameShoeDisplayItem.text = currentItem.name
-        holder.binding.tvPriceShoeDisplayItem.text = currentItem.price
+        holder.binding.tvNameShoeDisplayItem.text = "${currentItem.brand} ${currentItem.name}"
+        holder.binding.tvPriceShoeDisplayItem.text = "₹${currentItem.price}"
 
         Glide
             .with(context)
@@ -45,6 +45,8 @@ class ShoeDisplayAdapter(
     override fun getItemCount(): Int {
         return list.size
     }
+
+
 }
 
 interface ProductOnClickInterface {

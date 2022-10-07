@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.shoeapp.databinding.CategorymainItemBinding
 
 class MainCategoryAdapter(
-    private val list: List<String> ,
+    private val list: ArrayList<String>,
     val onClickCategory: CategoryOnClickInterface
     ): RecyclerView.Adapter<MainCategoryAdapter.ViewHolder>() {
 

@@ -3,69 +3,64 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-   >
+    android:layout_height="match_parent">
 
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMainCategories"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/categorymain_item" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvMainCategories"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:padding="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/categorymain_item"
-            />
+    <LinearLayout
+        android:id="@+id/llTextGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/rvMainCategories">
 
-        <LinearLayout
-            android:id="@+id/llTextGroup"
-            android:layout_width="match_parent"
+
+        <TextView
+            android:id="@+id/tvMainCategories"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/rvMainCategories"
-            android:layout_margin="10dp">
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            android:text="Trending"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/tvSeeAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="See All"
+            android:textSize="16sp" />
+    </LinearLayout>
 
-            <TextView
-                android:id="@+id/tvMainCategories"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_weight="1"
-                android:text="TextView"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvSeeAll"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="5dp"
-                android:text="See All"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvMainProductsList"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:padding="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/llTextGroup"
-            app:layout_constraintStart_toStartOf="@id/llTextGroup"
-            app:layout_constraintTop_toBottomOf="@id/llTextGroup"
-            app:layout_constraintVertical_bias="1.0"
-            tools:listitem="@layout/shoedisplaymain_item"
-            android:layout_margin="10dp"/>
-
-
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMainProductsList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/llTextGroup"
+        app:layout_constraintStart_toStartOf="@id/llTextGroup"
+        app:layout_constraintTop_toBottomOf="@id/llTextGroup"
+        app:layout_constraintVertical_bias="1.0"
+        tools:listitem="@layout/shoedisplaymain_item" />
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bnv_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_bnv"
@@ -75,8 +70,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bnv_items"
-        />
+        app:menu="@menu/bnv_items" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

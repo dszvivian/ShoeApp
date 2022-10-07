@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/navgraph"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/signInFragmentFragment">
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.shoeapp.MainFragment"
@@ -10,6 +10,15 @@
         <action
             android:id="@+id/action_mainFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_signInFragmentFragment"
+            app:destination="@id/signInFragmentFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+        <action
+            android:id="@+id/action_mainFragment_self"
+            app:destination="@id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
@@ -35,4 +44,26 @@
         android:id="@+id/cartFragment"
         android:name="com.example.shoeapp.CartFragment"
         android:label="CartFragment" />
+    <fragment
+        android:id="@+id/signInFragmentFragment"
+        android:name="com.example.shoeapp.SignInFragmentFragment"
+        android:label="SignInFragmentFragment" >
+        <action
+            android:id="@+id/action_signInFragmentFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_signInFragmentFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.shoeapp.SignUpFragment"
+        android:label="SignUpFragment" >
+        <action
+            android:id="@+id/action_signUpFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_signUpFragment_to_signInFragmentFragment"
+            app:destination="@id/signInFragmentFragment" />
+    </fragment>
 </navigation>
