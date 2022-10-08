@@ -28,17 +28,9 @@
             android:id="@+id/action_detailsFragment_to_cartFragment"
             app:destination="@id/cartFragment" />
         <argument
-            android:name="productName"
+            android:name="productId"
             app:argType="string"
             android:defaultValue="null" />
-        <argument
-            android:name="price"
-            app:argType="string"
-            android:defaultValue="null" />
-        <argument
-            android:name="resourceId"
-            app:argType="integer"
-            android:defaultValue="0" />
     </fragment>
     <fragment
         android:id="@+id/cartFragment"

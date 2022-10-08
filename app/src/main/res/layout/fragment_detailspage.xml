@@ -57,8 +57,6 @@
         </LinearLayout>
     </ScrollView>
 
-
-
                 <LinearLayout
                     android:id="@+id/llBottomDetails"
                     android:layout_width="match_parent"
@@ -84,20 +82,15 @@
                         android:textColor="@color/black"
                         />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="10000"
-                        android:textColor="#5E5A5A"
-                        style="@style/TextAppearance.MaterialComponents.Subtitle2"
-                        android:textStyle="bold"/>
+
 
 
                     <TextView
+                        android:id="@+id/tvDetailsProductDescription"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:maxLines="4"
-                        android:text="Air Jordan is a line of basketball shoes and athletic clothing produced by American corporation Nike. The first Air Jordan shoe was produced for Hall of Fame former basketball player Michael Jordan"
+                        android:text="@string/JordanDesciption"
                         android:padding="3dp"
                         android:textColor="@color/greyishtext"
                         />
@@ -110,56 +103,16 @@
                         android:textStyle="bold"
                         />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvSelectSize"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        >
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/size_item"
+                        />
 
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:layout_margin="5dp"
-                            android:textColor="@color/black"
-                            android:background="@drawable/custombuttonselectsize"
-                            android:text="5" />
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:layout_margin="5dp"
-                            android:textColor="@color/black"
-                            android:background="@drawable/custombuttonselectsize"
-                            android:text="6" />
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:textColor="@color/black"
-                            android:layout_margin="5dp"
-                            android:background="@drawable/custombuttonselectsize"
-                            android:text="7" />
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:layout_margin="5dp"
-                            android:textColor="@color/black"
-                            android:background="@drawable/custombuttonselectsize"
-                            android:text="8" />
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:layout_margin="5dp"
-                            android:textColor="@color/black"
-                            android:background="@drawable/custombuttonselectsize"
-                            android:text="9" />
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:layout_margin="5dp"
-                            android:textColor="@color/black"
-                            android:background="@drawable/custombuttonselectsize"
-                            android:text="10" />
-
-
-                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"

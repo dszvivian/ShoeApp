@@ -30,6 +30,7 @@ class ShoeDisplayAdapter(
         holder.binding.tvNameShoeDisplayItem.text = "${currentItem.brand} ${currentItem.name}"
         holder.binding.tvPriceShoeDisplayItem.text = "₹${currentItem.price}"
 
+
         Glide
             .with(context)
             .load(currentItem.imageUrl)

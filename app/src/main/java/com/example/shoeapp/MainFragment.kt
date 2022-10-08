@@ -77,6 +77,7 @@ class MainFragment : Fragment(R.layout.fragment_mainpage),
                 }
                 R.id.likeFragment -> {
                     requireActivity().toast("Like Page coming Soon")
+                    // TODO: Implement Like product feature -- User can only Like in MainFragment
                     true
                 }
                 R.id.cartFragment -> {
@@ -213,9 +214,7 @@ class MainFragment : Fragment(R.layout.fragment_mainpage),
 
         val direction = MainFragmentDirections
             .actionMainFragmentToDetailsFragment(
-                item.name!!,
-                item.price!!,
-                R.drawable.shoe10
+                item.id!!
             )
 
         Navigation.findNavController(requireView())

@@ -1,12 +1,17 @@
 package com.example.shoeapp.rvadapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.shoeapp.Models.CartModel
 import com.example.shoeapp.databinding.CartproductItemBinding
 
-class CartAdapter(val list:List<CartModel>):RecyclerView.Adapter<CartAdapter.ViewHolder>() {
+class CartAdapter(
+    private val context : Context,
+    private val list:List<CartModel>
+    ):RecyclerView.Adapter<CartAdapter.ViewHolder>() {
 
 
     class ViewHolder(val binding:CartproductItemBinding):RecyclerView.ViewHolder(binding.root)
@@ -19,21 +24,29 @@ class CartAdapter(val list:List<CartModel>):RecyclerView.Adapter<CartAdapter.Vie
 
         val currentItem = list[position]
 
-        holder.binding.ivCartProduct.setImageResource(currentItem.imageId)
-        holder.binding.tvCartProductName.text = currentItem.productName
-        holder.binding.tvCartProductPrice.text = currentItem.productPrice
+        Glide
+            .with(context)
+            .load(currentItem.imageUrl)
+            .into(holder.binding.ivCartProduct)
+
+
+        holder.binding.tvCartProductName.text = currentItem.name
+        holder.binding.tvCartProductPrice.text = "₹${currentItem.price}"
+        holder.binding.tvCartItemCount.text = currentItem.quantity.toString()
+        holder.binding.tvCartProductSize.text = currentItem.size
 
         var count = holder.binding.tvCartItemCount.text.toString().toInt()
 
         holder.binding.btnCartItemAdd.setOnClickListener {
             count++
-            currentItem.itemCount++
+            // TODO: Update Quantity in Database also
             holder.binding.tvCartItemCount.text = count.toString()
+
         }
 
         holder.binding.btnCartItemMinus.setOnClickListener {
             count--
-            currentItem.itemCount++
+            // TODO: Update Quantity in Database also
             holder.binding.tvCartItemCount.text = count.toString()
         }
 

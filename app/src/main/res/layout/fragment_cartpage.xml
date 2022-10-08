@@ -58,21 +58,21 @@
             >
 
             <TextView
+                android:id="@+id/tvLastSubTotalItems"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SubTotal Items(3)"
                 android:layout_weight="1"
-                android:textColor="@color/greyishtext"
-                />
+                android:text="SubTotal Items(3)"
+                android:textColor="@color/greyishtext" />
 
             <TextView
+                android:id="@+id/tvLastSubTotalprice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="₹240000"
-                android:textStyle="bold"
-                android:textColor="@color/black"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                />
+                android:textColor="@color/black"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -125,13 +125,13 @@
                 />
 
             <TextView
+                android:id="@+id/tvLastTotalPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="₹240240"
-                android:textStyle="bold"
-                android:textColor="@color/black"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                />
+                android:textColor="@color/black"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -141,12 +141,13 @@
 
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCartCheckout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/custom_button"
-            android:textColor="@color/white"
-            android:text="Go to Payments"
-            android:textAllCaps="false"/>
+            android:text="Checkout"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
 
 
     </LinearLayout>
