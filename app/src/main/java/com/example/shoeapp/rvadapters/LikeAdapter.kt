@@ -10,13 +10,12 @@ import com.bumptech.glide.Glide
 import com.example.shoeapp.Models.ShoeDisplayModel
 import com.example.shoeapp.databinding.ShoedisplaymainItemBinding
 
-class ShoeDisplayAdapter(
-   private val context:Context ,
-   private val list: List<ShoeDisplayModel>,
-   private val productClickInterface: ProductOnClickInterface,
-   private val likeClickInterface: LikeOnClickInterface,
+class LikeAdapter ( private val context: Context ,
+private val list: List<ShoeDisplayModel>,
+private val productClickInterface: LikedProductOnClickInterface,
+private val likeClickInterface: LikedOnClickInterface,
 
-    ) : RecyclerView.Adapter<ShoeDisplayAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<LikeAdapter.ViewHolder>() {
 
 
     inner class ViewHolder(val binding: ShoedisplaymainItemBinding) :
@@ -32,6 +31,7 @@ class ShoeDisplayAdapter(
         val currentItem = list[position]
         holder.binding.tvNameShoeDisplayItem.text = "${currentItem.brand} ${currentItem.name}"
         holder.binding.tvPriceShoeDisplayItem.text = "₹${currentItem.price}"
+        holder.binding.btnLike.imageTintList = ColorStateList.valueOf(Color.RED)
 
 
         Glide
@@ -46,7 +46,8 @@ class ShoeDisplayAdapter(
 
         holder.binding.btnLike.setOnClickListener {
             likeClickInterface.onClickLike(currentItem)
-            holder.binding.btnLike.imageTintList = ColorStateList.valueOf(Color.RED)
+            holder.binding.btnLike.imageTintList = ColorStateList.valueOf(Color.WHITE)
+
         }
 
     }
@@ -58,10 +59,10 @@ class ShoeDisplayAdapter(
 
 }
 
-interface ProductOnClickInterface {
+interface LikedProductOnClickInterface {
     fun onClickProduct(item: ShoeDisplayModel)
 }
 
-interface LikeOnClickInterface{
-    fun onClickLike(item :ShoeDisplayModel)
+interface LikedOnClickInterface{
+    fun onClickLike(item : ShoeDisplayModel)
 }

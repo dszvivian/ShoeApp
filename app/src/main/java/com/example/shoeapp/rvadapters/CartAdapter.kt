@@ -38,16 +38,16 @@ class CartAdapter(
         var count = holder.binding.tvCartItemCount.text.toString().toInt()
 
         holder.binding.btnCartItemAdd.setOnClickListener {
-            count++
+//            count++
             // TODO: Update Quantity in Database also
-            holder.binding.tvCartItemCount.text = count.toString()
+//            holder.binding.tvCartItemCount.text = count.toString()
 
         }
 
         holder.binding.btnCartItemMinus.setOnClickListener {
-            count--
+//            count--
             // TODO: Update Quantity in Database also
-            holder.binding.tvCartItemCount.text = count.toString()
+//            holder.binding.tvCartItemCount.text = count.toString()
         }
 
     }

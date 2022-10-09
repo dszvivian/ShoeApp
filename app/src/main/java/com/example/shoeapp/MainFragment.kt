@@ -11,19 +11,19 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shoeapp.Extensions.toast
+import com.example.shoeapp.Models.LikeModel
 import com.example.shoeapp.Models.ShoeDisplayModel
 import com.example.shoeapp.databinding.FragmentMainpageBinding
-import com.example.shoeapp.rvadapters.CategoryOnClickInterface
-import com.example.shoeapp.rvadapters.MainCategoryAdapter
-import com.example.shoeapp.rvadapters.ProductOnClickInterface
-import com.example.shoeapp.rvadapters.ShoeDisplayAdapter
+import com.example.shoeapp.rvadapters.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class MainFragment : Fragment(R.layout.fragment_mainpage),
     CategoryOnClickInterface,
-    ProductOnClickInterface {
+    ProductOnClickInterface, LikeOnClickInterface {
 
 
     private lateinit var binding: FragmentMainpageBinding
@@ -33,6 +33,8 @@ class MainFragment : Fragment(R.layout.fragment_mainpage),
     private lateinit var productsAdapter: ShoeDisplayAdapter
     private lateinit var categoryAdapter: MainCategoryAdapter
     private lateinit var auth: FirebaseAuth
+    private var likeDBRef = Firebase.firestore.collection("LikedProducts")
+
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -61,7 +63,7 @@ class MainFragment : Fragment(R.layout.fragment_mainpage),
         // region implements products Recycler view
 
         val productLayoutManager = GridLayoutManager(context, 2)
-        productsAdapter = ShoeDisplayAdapter(requireContext(), productList, this)
+        productsAdapter = ShoeDisplayAdapter(requireContext(), productList, this,this)
         binding.rvMainProductsList.layoutManager = productLayoutManager
         binding.rvMainProductsList.adapter = productsAdapter
         setProductsData()
@@ -77,7 +79,8 @@ class MainFragment : Fragment(R.layout.fragment_mainpage),
                 }
                 R.id.likeFragment -> {
                     requireActivity().toast("Like Page coming Soon")
-                    // TODO: Implement Like product feature -- User can only Like in MainFragment
+                    Navigation.findNavController(requireActivity(), R.id.fragmentContainerView)
+                        .navigate(R.id.action_mainFragment_to_likeFragment2)
                     true
                 }
                 R.id.cartFragment -> {
@@ -134,6 +137,10 @@ class MainFragment : Fragment(R.layout.fragment_mainpage),
 
 
         databaseReference.addValueEventListener(valueEvent)
+
+
+
+
     }
 
 
@@ -176,7 +183,6 @@ class MainFragment : Fragment(R.layout.fragment_mainpage),
 
                 productList.clear()
 
-
                 if (snapshot.exists()) {
                     for (dataSnapshot in snapshot.children) {
                         val products = dataSnapshot.getValue(ShoeDisplayModel::class.java)
@@ -203,7 +209,6 @@ class MainFragment : Fragment(R.layout.fragment_mainpage),
 
         }
 
-
         databaseReference.addValueEventListener(valueEvent)
 
 
@@ -220,6 +225,18 @@ class MainFragment : Fragment(R.layout.fragment_mainpage),
         Navigation.findNavController(requireView())
             .navigate(direction)
 
+
+    }
+
+    override fun onClickLike(item: ShoeDisplayModel) {
+
+        likeDBRef.add(LikeModel(item.id , auth.currentUser!!.uid))
+            .addOnSuccessListener {
+                requireActivity().toast("Added to Liked Items")
+            }
+            .addOnFailureListener {
+                requireActivity().toast("Failed to Add to Liked")
+            }
 
     }
 

@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_mainFragment_self"
             app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_likeFragment2"
+            app:destination="@id/likeFragment2" />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
@@ -57,5 +60,13 @@
         <action
             android:id="@+id/action_signUpFragment_to_signInFragmentFragment"
             app:destination="@id/signInFragmentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/likeFragment2"
+        android:name="com.example.shoeapp.LikeFragment"
+        android:label="LikeFragment" >
+        <action
+            android:id="@+id/action_likeFragment2_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
 </navigation>
