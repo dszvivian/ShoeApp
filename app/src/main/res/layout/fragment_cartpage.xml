@@ -62,14 +62,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="SubTotal Items(3)"
+                android:text="SubTotal Items(0)"
                 android:textColor="@color/greyishtext" />
 
             <TextView
                 android:id="@+id/tvLastSubTotalprice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="₹240000"
+                android:text="₹0"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
@@ -93,11 +93,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="₹240"
-                android:textStyle="bold"
-                android:textColor="@color/black"
+                android:text="₹0"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                />
+                android:textColor="@color/black"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -128,7 +127,7 @@
                 android:id="@+id/tvLastTotalPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="₹240240"
+                android:text="₹0"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:textColor="@color/black"
                 android:textStyle="bold" />

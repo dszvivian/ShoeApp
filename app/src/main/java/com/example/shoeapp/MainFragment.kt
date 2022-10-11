@@ -78,7 +78,7 @@ class MainFragment : Fragment(R.layout.fragment_mainpage),
                     true
                 }
                 R.id.likeFragment -> {
-                    requireActivity().toast("Like Page coming Soon")
+//                    requireActivity().toast("Like Page coming Soon")
                     Navigation.findNavController(requireActivity(), R.id.fragmentContainerView)
                         .navigate(R.id.action_mainFragment_to_likeFragment2)
                     true
@@ -121,7 +121,6 @@ class MainFragment : Fragment(R.layout.fragment_mainpage),
                         categoryList.add(products!!.brand!!)
 
                     }
-
 
                     categoryAdapter.notifyDataSetChanged()
                 }
@@ -169,9 +168,7 @@ class MainFragment : Fragment(R.layout.fragment_mainpage),
 
         }
 
-
         databaseReference.addValueEventListener(valueEvent)
-
 
     }
 
@@ -230,7 +227,8 @@ class MainFragment : Fragment(R.layout.fragment_mainpage),
 
     override fun onClickLike(item: ShoeDisplayModel) {
 
-        likeDBRef.add(LikeModel(item.id , auth.currentUser!!.uid))
+        likeDBRef
+            .add(LikeModel(item.id , auth.currentUser!!.uid , item.brand , item.description , item.imageUrl , item.name ,item.price))
             .addOnSuccessListener {
                 requireActivity().toast("Added to Liked Items")
             }
@@ -241,6 +239,9 @@ class MainFragment : Fragment(R.layout.fragment_mainpage),
     }
 
 
+
 }
+
+
 
 

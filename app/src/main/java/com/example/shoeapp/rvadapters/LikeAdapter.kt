@@ -7,15 +7,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.shoeapp.Models.ShoeDisplayModel
+import com.example.shoeapp.Models.LikeModel
 import com.example.shoeapp.databinding.ShoedisplaymainItemBinding
 
-class LikeAdapter ( private val context: Context ,
-private val list: List<ShoeDisplayModel>,
-private val productClickInterface: LikedProductOnClickInterface,
-private val likeClickInterface: LikedOnClickInterface,
+class LikeAdapter(private val context: Context,
+                  private val list: ArrayList<LikeModel>,
+                  private val productClickInterface: LikedProductOnClickInterface,
+                  private val likeClickInterface: LikedOnClickInterface,
 
-) : RecyclerView.Adapter<LikeAdapter.ViewHolder>() {
+                  ) : RecyclerView.Adapter<LikeAdapter.ViewHolder>() {
 
 
     inner class ViewHolder(val binding: ShoedisplaymainItemBinding) :
@@ -31,7 +31,7 @@ private val likeClickInterface: LikedOnClickInterface,
         val currentItem = list[position]
         holder.binding.tvNameShoeDisplayItem.text = "${currentItem.brand} ${currentItem.name}"
         holder.binding.tvPriceShoeDisplayItem.text = "₹${currentItem.price}"
-        holder.binding.btnLike.imageTintList = ColorStateList.valueOf(Color.RED)
+        holder.binding.btnLike.backgroundTintList = ColorStateList.valueOf(Color.RED)
 
 
         Glide
@@ -46,8 +46,9 @@ private val likeClickInterface: LikedOnClickInterface,
 
         holder.binding.btnLike.setOnClickListener {
             likeClickInterface.onClickLike(currentItem)
-            holder.binding.btnLike.imageTintList = ColorStateList.valueOf(Color.WHITE)
+            holder.binding.btnLike.backgroundTintList = ColorStateList.valueOf(Color.WHITE)
 
+            likeClickInterface.onClickLike(currentItem)
         }
 
     }
@@ -60,9 +61,9 @@ private val likeClickInterface: LikedOnClickInterface,
 }
 
 interface LikedProductOnClickInterface {
-    fun onClickProduct(item: ShoeDisplayModel)
+    fun onClickProduct(item: LikeModel)
 }
 
 interface LikedOnClickInterface{
-    fun onClickLike(item : ShoeDisplayModel)
+    fun onClickLike(item: LikeModel)
 }

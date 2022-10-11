@@ -3,6 +3,7 @@ package com.example.shoeapp.rvadapters
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -45,8 +46,14 @@ class ShoeDisplayAdapter(
         }
 
         holder.binding.btnLike.setOnClickListener {
-            likeClickInterface.onClickLike(currentItem)
-            holder.binding.btnLike.imageTintList = ColorStateList.valueOf(Color.RED)
+            if(holder.binding.btnLike.isChecked){
+                holder.binding.btnLike.backgroundTintList = ColorStateList.valueOf(Color.RED)
+                likeClickInterface.onClickLike(currentItem)
+            }
+            else{
+                holder.binding.btnLike.backgroundTintList = ColorStateList.valueOf(Color.WHITE)
+            }
+
         }
 
     }

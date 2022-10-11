@@ -8,7 +8,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.shoeapp.Extensions.toast
 import com.example.shoeapp.Models.CartModel
 import com.example.shoeapp.databinding.FragmentCartpageBinding
@@ -18,7 +23,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 
-class CartFragment : Fragment(R.layout.fragment_cartpage) {
+class CartFragment : Fragment(R.layout.fragment_cartpage), CartAdapter.OnLongClickRemove {
 
     private lateinit var binding: FragmentCartpageBinding
     private lateinit var cartList: ArrayList<CartModel>
@@ -36,10 +41,6 @@ class CartFragment : Fragment(R.layout.fragment_cartpage) {
         auth = FirebaseAuth.getInstance()
 
 
-
-
-
-
         val layoutManager = LinearLayoutManager(context)
 
 
@@ -49,9 +50,14 @@ class CartFragment : Fragment(R.layout.fragment_cartpage) {
 
 
 
-        adapter = CartAdapter(requireContext(),cartList)
+        adapter = CartAdapter(requireContext(),cartList ,this)
         binding.rvCartItems.adapter = adapter
         binding.rvCartItems.layoutManager = layoutManager
+
+
+
+
+
 
         binding.btnCartCheckout.setOnClickListener {
 
@@ -67,14 +73,19 @@ class CartFragment : Fragment(R.layout.fragment_cartpage) {
 
     }
 
+
+
+
     private fun retrieveCartItems() {
 
-        orderDatabaseReference.get()
+        orderDatabaseReference
+            .whereEqualTo("uid",auth.currentUser!!.uid)
+            .get()
             .addOnSuccessListener { querySnapshot ->
                 for (item in querySnapshot) {
                     val cartProduct = item.toObject<CartModel>()
 
-                    if(auth.currentUser!!.uid == cartProduct.uid){
+
                         cartList.add(cartProduct)
                         subTotalPrice += cartProduct.price!!.toInt()
                         totalPrice += cartProduct.price!!.toInt()
@@ -82,7 +93,6 @@ class CartFragment : Fragment(R.layout.fragment_cartpage) {
                         binding.tvLastTotalPrice.text = totalPrice.toString()
                         binding.tvLastSubTotalItems.text = "SubTotal Items(${cartList.size})"
                         adapter.notifyDataSetChanged()
-                    }
 
 
                 }
@@ -94,6 +104,34 @@ class CartFragment : Fragment(R.layout.fragment_cartpage) {
 
 
     }
+
+    override fun onLongRemove(item: CartModel , position:Int) {
+
+
+        orderDatabaseReference
+            .whereEqualTo("uid",item.uid)
+            .whereEqualTo("pid",item.pid)
+            .whereEqualTo("size",item.size)
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+
+                for (item in querySnapshot){
+                    orderDatabaseReference.document(item.id).delete()
+                    cartList.removeAt(position)
+                    adapter.notifyItemRemoved(position)
+                    requireActivity().toast("Removed Successfully!!!")
+                }
+
+            }
+            .addOnFailureListener {
+                requireActivity().toast("Failed to remove")
+            }
+
+
+
+    }
+
+
 
 
 }

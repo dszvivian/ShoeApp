@@ -56,17 +56,18 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="1" />
 
-    <ImageButton
+    <ToggleButton
         android:id="@+id/btnLike"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:minHeight="48dp"
         android:minWidth="48dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_heart_svgrepo_com"
-        tools:ignore="SpeakableTextPresentCheck"
-        android:background="@color/grayishWhite"
+        android:textOn=""
+        android:textOff=""
+        android:background="@drawable/ic_heart_svgrepo_com"
+        android:backgroundTint="@color/white"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
         app:tint="@color/white" />
