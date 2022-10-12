@@ -40,6 +40,10 @@ class CartFragment : Fragment(R.layout.fragment_cartpage), CartAdapter.OnLongCli
         binding = FragmentCartpageBinding.bind(view)
         auth = FirebaseAuth.getInstance()
 
+        binding.cartActualToolbar.setNavigationOnClickListener {
+            Navigation.findNavController(requireView()).popBackStack()
+        }
+
 
         val layoutManager = LinearLayoutManager(context)
 

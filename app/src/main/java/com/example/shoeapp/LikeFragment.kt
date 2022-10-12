@@ -3,6 +3,7 @@ package com.example.shoeapp
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.shoeapp.Extensions.toast
 import com.example.shoeapp.Models.LikeModel
@@ -33,6 +34,11 @@ class LikeFragment(): Fragment(R.layout.fragment_likepage), LikedProductOnClickI
         auth = FirebaseAuth.getInstance()
         likedProductList = ArrayList()
         adapter = LikeAdapter(requireContext(),likedProductList,this,this)
+
+
+        binding.likeActualToolbar.setNavigationOnClickListener {
+            Navigation.findNavController(requireView()).popBackStack()
+        }
 
 
         val productLayoutManager = GridLayoutManager(context, 2)

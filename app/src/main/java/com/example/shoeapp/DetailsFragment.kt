@@ -51,7 +51,9 @@ class DetailsFragment : Fragment(R.layout.fragment_detailspage), SizeOnClickInte
 
         currentUID = auth.currentUser!!.uid
 
-
+        binding.detailActualToolbar.setNavigationOnClickListener {
+            Navigation.findNavController(requireView()).popBackStack()
+        }
 
 
 

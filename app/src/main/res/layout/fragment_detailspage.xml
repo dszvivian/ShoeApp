@@ -16,6 +16,7 @@
 
 
         <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/detailActualToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
@@ -31,10 +32,12 @@
         android:layout_height="wrap_content"
 
         app:layout_constraintBottom_toTopOf="@id/llBottomDetails"
-        app:layout_constraintTop_toBottomOf="@id/detailToolbar"
-        app:layout_constraintStart_toStartOf="@id/detailToolbar"
         app:layout_constraintEnd_toEndOf="@id/detailToolbar"
+        app:layout_constraintStart_toStartOf="@id/detailToolbar"
+        app:layout_constraintTop_toBottomOf="@id/detailToolbar"
+
         tools:ignore="SpeakableTextPresentCheck">
+
 
         <LinearLayout
             android:layout_width="match_parent"
